@@ -3,16 +3,11 @@ import numpy as np
 def perceptron(X,Y,r,T):
     w = [0]*len(X[0])
     e = 0
-    cont = True
     for e in range(T):
         for i,x in enumerate(X):
             if np.sign(np.dot(x,w)) * Y[i] <= 0:
                 e += 1
                 w = w + r*Y[i]*x
-                # if e >= T:
-                #     cont = False
-                #     break
-
     return w
 
 def votedperceptron(X,Y,r,T):
